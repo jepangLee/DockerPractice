@@ -1,12 +1,13 @@
 plugins {
     id 'org.springframework.boot' version '2.2.0.RELEASE'
     id 'io.spring.dependency-management' version '1.0.8.RELEASE'
+    id 'com.palantir.docker' version '0.22.1'
     id 'java'
     id 'war'
 }
 
 bootWar {
-    baseName 'docker'
+    baseName 'docker-practice'
     version '0.1.0'
 }
 
@@ -14,13 +15,12 @@ repositories {
     mavenCentral()
 }
 
-sourceCompatibility = 1.8
-targetCompatibility = 1.8
+group = 'com'
+sourceCompatibility = '1.8'
+targetCompatibility = '1.8'
 
 dependencies {
     implementation 'org.springframework.boot:spring-boot-starter-web'
-
-    providedRuntime 'org.springframework.boot:spring-boot-starter-tomcat'
 
     testCompile 'org.springframework.boot:spring-boot-starter-test'
 }
