@@ -1,5 +1,8 @@
-FROM java:8
+FROM gradle:jdk8
 
-COPY build/libs/docker-practice-0.1.0.war /
+COPY . /app
+WORKDIR /app
 
-ENTRYPOINT ["java", "-jar", "/docker-practice-0.1.0.war"]
+RUN gradle build
+
+ENTRYPOINT ["java", "-jar", "build/libs/docker-practice-0.1.0.war"]
