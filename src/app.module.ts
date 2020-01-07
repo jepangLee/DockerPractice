@@ -1,0 +1,25 @@
+import { Module } from '@nestjs/common';
+import { User, UserModule } from '@app/user';
+import { TypeOrmModule } from '@nestjs/typeorm';
+
+@Module({
+  imports: [
+    UserModule,
+    TypeOrmModule.forRootAsync({
+      useFactory() {
+        return {
+          type: 'mysql',
+          host: 'localhost',
+          port: 3306,
+          username: 'root',
+          password: 'qlalfqjsgh1',
+          database: 'test',
+          entities: [User],
+          synchronize: true,
+        };
+      },
+    })],
+})
+
+export class AppModule {
+}
