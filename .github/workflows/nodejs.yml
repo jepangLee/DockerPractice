@@ -10,7 +10,7 @@ jobs:
         node-version: [12.x]
     services:
       mysql:
-        image: mysql:latest
+        image: mysql:5.7.x
         env:
           MYSQL_USER: public
           MYSQL_PASSWORD: qlalfqjsgh1!
