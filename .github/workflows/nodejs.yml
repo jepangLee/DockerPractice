@@ -9,11 +9,13 @@ jobs:
       matrix:
         node-version: [12.x]
     services:
-      mysql:
-        image: mysql:5.7
+      mariadb:
+        image: mariadb:10.3
         ports:
-          - 3306
+          - 3307:3307
         env:
+          MYSQL_USER: user
+          MYSQL_PASSWORD: password
           MYSQL_ROOT_PASSWORD: password
     steps:
       - uses: actions/checkout@v1
