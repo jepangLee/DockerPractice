@@ -33,7 +33,7 @@ jobs:
             ${{ runner.OS }}-test-
             ${{ runner.OS }}-
       - name: Setting Up DB
-        run: mysql -v -h mysql -P 3306
+        run: mysql -v -h public -P qlalfqjsgh1!
       - name: yarn install
         run: yarn
       - name: Test
