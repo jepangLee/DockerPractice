@@ -8,6 +8,15 @@ jobs:
     strategy:
       matrix:
         node-version: [12.x]
+        services:
+    services:
+      mysql:
+        image: mysql:5.7
+        env:
+          MYSQL_USER: public
+          MYSQL_PASSWORD: qlalfqjsgh1!
+        ports:
+          - 3307:3307
     steps:
       - uses: actions/checkout@v1
       - name: Use Node.js ${{ matrix.node-version }}
@@ -24,12 +33,6 @@ jobs:
             ${{ runner.OS }}-test-${{ matrix.node-version }}-
             ${{ runner.OS }}-test-
             ${{ runner.OS }}-
-      - uses: mirromutth/mysql-action@v1.1
-        with:
-          mysql user: public
-          mysql password: qlalfqjsgh1!
-          host port: 3800
-          container port: 3307
       - name: yarn install
         run: yarn
       - name: Test
