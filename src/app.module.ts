@@ -8,11 +8,11 @@ import { TypeOrmModule } from '@nestjs/typeorm';
     TypeOrmModule.forRootAsync({
       useFactory() {
         return {
-          type: 'mysql',
+          type: 'mariadb',
           host: 'localhost',
-          port: 3307,
-          username: 'root',
-          password: 'test',
+          port: 3306,
+          username: 'user',
+          password: 'password',
           database: 'test',
           entities: [User],
           synchronize: true,
