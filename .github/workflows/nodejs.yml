@@ -5,18 +5,16 @@ on: [push]
 jobs:
   test_node_12:
     runs-on: ubuntu-latest
+    services:
+      mysql:
+        image: mysql:8
+      env:
+        MYSQL_ROOT_PASSWORD: password
+      ports:
+        - 13306:3306
     strategy:
       matrix:
         node-version: [12.x]
-    services:
-      mariadb:
-        image: mariadb:10.3
-        ports:
-          - 3307:3307
-        env:
-          MYSQL_USER: user
-          MYSQL_PASSWORD: password
-          MYSQL_ROOT_PASSWORD: password
     steps:
       - uses: actions/checkout@v1
       - name: Use Node.js ${{ matrix.node-version }}
