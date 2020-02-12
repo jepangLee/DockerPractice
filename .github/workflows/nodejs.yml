@@ -12,8 +12,7 @@ jobs:
       mysql:
         image: mysql:5.7
         env:
-          MYSQL_USER: public
-          MYSQL_PASSWORD: qlalfqjsgh1!
+          MYSQL_ROOT_PASSWORD: test
         ports:
           - 3307:3307
     steps:
@@ -33,7 +32,7 @@ jobs:
             ${{ runner.OS }}-test-
             ${{ runner.OS }}-
       - name: Setting Up DB
-        run: mysql -v -h public -P 3306 -p qlalfqjsgh1!
+        run: mysql -v -h public -P 3306 -p test
       - name: yarn install
         run: yarn
       - name: Test
