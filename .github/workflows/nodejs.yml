@@ -9,16 +9,13 @@ jobs:
       matrix:
         node-version: [12.x]
     services:
-      mariadb:
-        image: mariadb:latest
+      mysql:
+        image: mysql:5.7
         ports:
-          - 3306
+          - 3307:3307
         env:
           MYSQL_USER: user
           MYSQL_PASSWORD: password
-          MYSQL_DATABASE: test
-          MYSQL_ROOT_PASSWORD: password
-          options: --health-cmd="mysqladmin ping" --health-interval=5s --health-timeout=2s --health-retries=3
     steps:
       - uses: actions/checkout@v1
       - name: Use Node.js ${{ matrix.node-version }}
@@ -35,13 +32,6 @@ jobs:
             ${{ runner.OS }}-test-${{ matrix.node-version }}-
             ${{ runner.OS }}-test-
             ${{ runner.OS }}-
-      - name: Verify MariaDB connection
-        env:
-          PORT: ${{ job.services.mariadb.ports[3306] }}
-        run: |
-          while ! mysqladmin ping -h"127.0.0.1" -P"$PORT" --silent; do
-            sleep 1
-          done
       - name: yarn install
         run: yarn
       - name: Test

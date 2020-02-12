@@ -1,24 +1,9 @@
 import { Module } from '@nestjs/common';
-import { User, UserModule } from '@app/user';
+import { UserModule } from '@app/user';
 import { TypeOrmModule } from '@nestjs/typeorm';
 
 @Module({
-  imports: [
-    UserModule,
-    TypeOrmModule.forRootAsync({
-      useFactory() {
-        return {
-          type: 'mariadb',
-          host: 'localhost',
-          port: 3306,
-          username: 'user',
-          password: 'password',
-          database: 'test',
-          entities: [User],
-          synchronize: true,
-        };
-      },
-    })],
+  imports: [UserModule, TypeOrmModule.forRoot()],
 })
 
 export class AppModule {
