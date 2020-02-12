@@ -33,7 +33,7 @@ jobs:
             ${{ runner.OS }}-test-${{ matrix.node-version }}-
             ${{ runner.OS }}-test-
             ${{ runner.OS }}-
-      - name: yarn install
-        run: yarn
+      - name: Yarn install
+        run: yarn install
       - name: Test
-        run: yarn test
+        run: sudo yarn test
