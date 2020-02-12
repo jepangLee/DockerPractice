@@ -8,10 +8,10 @@ jobs:
     services:
       mysql:
         image: mysql:8
-      env:
-        MYSQL_ROOT_PASSWORD: password
-      ports:
-        - 13306:3306
+        env:
+          MYSQL_ROOT_PASSWORD: root
+        ports:
+          - 13306:3306
     strategy:
       matrix:
         node-version: [12.x]
