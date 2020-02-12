@@ -10,7 +10,7 @@ import { TypeOrmModule } from '@nestjs/typeorm';
         return {
           type: 'mysql',
           host: 'localhost',
-          port: 3306,
+          port: 3307,
           username: 'public',
           password: 'qlalfqjsgh1!',
           database: 'test',

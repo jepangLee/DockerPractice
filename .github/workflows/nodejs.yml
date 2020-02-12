@@ -28,6 +28,8 @@ jobs:
         with:
           mysql user: public
           mysql password: qlalfqjsgh1!
+          host port: 3800
+          container port: 3307
       - name: yarn install
         run: yarn
       - name: Test
