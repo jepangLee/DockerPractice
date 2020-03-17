@@ -1,0 +1,3 @@
+export enum EnumSortOption {
+  POPULARITY = 'POPULARITY', REVIEW = 'REVIEW', NEARNESS = 'NEARNESS'
+}

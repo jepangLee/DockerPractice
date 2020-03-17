@@ -3,7 +3,7 @@ name: Node CI
 on: [push]
 
 jobs:
-  test_node_12:
+  test:
     runs-on: ubuntu-latest
     services:
       mysql:

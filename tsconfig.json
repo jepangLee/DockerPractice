@@ -1,23 +1,59 @@
 {
   "compilerOptions": {
-    "module": "commonjs",
+    "baseUrl": "./",
     "declaration": true,
-    "removeComments": true,
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
-    "target": "es2017",
-    "sourceMap": true,
-    "outDir": "./dist",
-    "baseUrl": "./",
     "incremental": true,
+    "lib": [
+      "es2019"
+    ],
+    "module": "commonjs",
+    "outDir": "./dist",
     "paths": {
+      "@app/config": [
+        "libs/config/src"
+      ],
+      "@app/coupon": [
+        "libs/coupon/src"
+      ],
+      "@app/db": [
+        "libs/db/src"
+      ],
+      "@app/menu": [
+        "libs/menu/src"
+      ],
+      "@app/order": [
+        "libs/order/src"
+      ],
+      "@app/restaurant": [
+        "libs/restaurant/src"
+      ],
+      "@app/type": [
+        "libs/type/src"
+      ],
+      "@app/type/etc": [
+        "libs/type/src/etc"
+      ],
+      "@app/type/req": [
+        "libs/type/src/req"
+      ],
+      "@app/type/res": [
+        "libs/type/src/res"
+      ],
       "@app/user": [
         "libs/user/src"
+      ],
+      "@app/util": [
+        "libs/util/src"
       ]
-    }
+    },
+    "removeComments": true,
+    "sourceMap": true,
+    "target": "es2017"
   },
   "exclude": [
-    "node_modules",
-    "dist"
+    "dist",
+    "node_modules"
   ]
 }
