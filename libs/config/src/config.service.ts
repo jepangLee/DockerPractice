@@ -51,6 +51,8 @@ export class ConfigService {
       ...custom_config,
     });
 
+    console.log(this);
+
     const errors = validateSync(this);
     if (errors.length > 0) {
       throw new Error(errors[0].toString());
