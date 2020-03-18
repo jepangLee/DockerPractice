@@ -1,4 +1,4 @@
-import { IsEnum, IsNumberString, IsOptional, IsString, validateSync } from 'class-validator';
+import { IsEnum, IsNumberString, IsOptional, IsString, IsUrl, validateSync } from 'class-validator';
 import { Injectable } from '@nestjs/common';
 import { NodeEnv } from './node-env.enum';
 import { fileExistsSync } from 'tsconfig-paths/lib/filesystem';
@@ -12,7 +12,7 @@ export type Config = Record<string, string>;
 export class ConfigService {
   @IsEnum(NodeEnv)
   public readonly NODE_ENV: NodeEnv;
-  @IsString()
+  @IsUrl()
   public readonly MONGODB_HOST: string;
   @IsString()
   public readonly MONGODB_PASS: string;
@@ -22,7 +22,7 @@ export class ConfigService {
   public readonly MONGODB_SCHEMA: string;
   @IsString()
   public readonly MONGODB_USER: string;
-  @IsString()
+  @IsUrl()
   public readonly MYSQL_HOST: string;
   @IsString()
   public readonly MYSQL_PASS: string;
