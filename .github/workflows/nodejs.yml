@@ -4,12 +4,14 @@ on: [push]
 
 env:
   ENCIPHERMENT: sha512
-  MYSQL_HOST: jepanglee.iptime.org
-  MYSQL_SCHEMA: thikira_test
-  MYSQL_USER: thikira_test
-  MONGODB_HOST: jepanglee.iptime.org
-  MONGODB_SCHEMA: thikira_test
-  MONGODB_USER: thikira_test
+  MYSQL_HOST: ${{ secrets.MYSQL_HOST }}
+  MYSQL_SCHEMA: ${{ secrets.MYSQL_SCHEMA }}
+  MYSQL_USER: ${{ secrets.MYSQL_USER }}
+  MYSQL_PASS: ${{ secrets.MYSQL_PASS }}
+  MONGODB_HOST: ${{ secrets.MONGODB_HOST }}
+  MONGODB_SCHEMA: ${{ secrets.MONGODB_SCHEMA }}
+  MONGODB_PASS: ${{ secrets.MONGODB_PASS }}
+  MONGODB_USER: ${{ secrets.MONGODB_USER }}
 
 jobs:
   test:
